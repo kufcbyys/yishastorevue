@@ -1,28 +1,39 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="nav">
+      <el-menu :default-active="activeIndex" router class="el-menu-demo" mode="horizontal">
+        <el-menu-item index="/login">个人中心</el-menu-item>
+        <el-menu-item index="/yourBooks">书架</el-menu-item>
+        <el-menu-item index="/">书城</el-menu-item>
+      </el-menu>
+      <router-view/>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      activeIndex: this.$route.path
+    };
+  },
+  methods: {
+
   }
+
 }
 </script>
 
 <style>
-#app {
+#nav {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  z-index: 20;
 }
+
 </style>
